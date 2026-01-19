@@ -129,8 +129,52 @@ const HomePage = () => {
 
         <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Image Gallery */}
+            <div className="relative order-2 lg:order-1">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+                    <img
+                      src={salonImages.glamorousHair}
+                      alt="Glamorous hairstyle"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/50 to-transparent" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                    <img
+                      src={salonImages.eyebrowTreatment}
+                      alt="Beauty treatment"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/50 to-transparent" />
+                  </div>
+                </div>
+                <div className="space-y-4 pt-8">
+                  <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                    <img
+                      src={salonImages.stylistWorking}
+                      alt="Professional styling"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/50 to-transparent" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+                    <img
+                      src={salonImages.hairTreatment}
+                      alt="Hair treatment"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/50 to-transparent" />
+                  </div>
+                </div>
+              </div>
+              {/* Decorative border */}
+              <div className="absolute -inset-4 border border-[#c9a96e]/20 rounded-3xl -z-10" />
+            </div>
+
             {/* Content */}
-            <div>
+            <div className="order-1 lg:order-2">
               <p className="text-[#c9a96e] text-sm uppercase tracking-[0.3em] mb-4">
                 About Us
               </p>
@@ -154,9 +198,14 @@ const HomePage = () => {
                 Learn More About Us
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      {/* Features Section */}
+      <section className="py-24 lg:py-32 bg-[#0d0d0f]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: Sparkles, title: 'Expert Stylists', desc: 'Certified professionals with years of experience' },
                 { icon: Heart, title: 'Woman-Led', desc: 'Locally owned, inclusive space for all' },
