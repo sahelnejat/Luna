@@ -12,7 +12,7 @@ export const salonInfo = {
     saturday: "9:00 AM - 6:00 PM",
     sunday: "10:00 AM - 5:00 PM"
   },
-  logo: "https://customer-assets.emergentagent.com/job_286d3f4e-f5b2-4ab1-a980-eb21fd9d508c/artifacts/p05j140g_Untitled-1-01.webp"
+  logo: "https://customer-assets.emergentagent.com/job_beautyspot-10/artifacts/x8ire50k_1000129657-removebg-preview.png"
 };
 
 export const services = [
