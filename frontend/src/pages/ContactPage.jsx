@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
 import { salonInfo } from '../data/mock';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -25,22 +29,35 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log('Contact form submitted:', formData);
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({
-      firstName: '',
-      lastName: '',
-      email: '',
-      subject: '',
-      message: '',
-    });
+    try {
+      const contactData = {
+        first_name: formData.firstName,
+        last_name: formData.lastName,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message
+      };
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+      const response = await axios.post(`${API}/contact`, contactData);
+      
+      console.log('Contact form submitted:', response.data);
+      setIsSubmitted(true);
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        subject: '',
+        message: '',
+      });
+
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Error submitting contact form:', error);
+      alert('Failed to submit message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
