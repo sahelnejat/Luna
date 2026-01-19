@@ -42,11 +42,23 @@ class ClientInfo(BaseModel):
     notes: Optional[str] = ""
 
 
+class ServiceItem(BaseModel):
+    category: str
+    name: str
+    price: str
+    duration: int
+
+
 class BookingCreate(BaseModel):
-    service_category: str
-    service_name: str
-    service_price: str
-    service_duration: int
+    # Support both single service (legacy) and multiple services
+    service_category: Optional[str] = None
+    service_name: Optional[str] = None
+    service_price: Optional[str] = None
+    service_duration: Optional[int] = None
+    # New: multiple services
+    services: Optional[List[ServiceItem]] = None
+    total_duration: Optional[int] = None
+    total_price_min: Optional[str] = None
     date: str
     time: str
     stylist_id: int
@@ -58,10 +70,14 @@ class Booking(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     reference: str
     status: str = "confirmed"
-    service_category: str
-    service_name: str
-    service_price: str
-    service_duration: int
+    # Support both single and multiple services
+    service_category: Optional[str] = None
+    service_name: Optional[str] = None
+    service_price: Optional[str] = None
+    service_duration: Optional[int] = None
+    services: Optional[List[dict]] = None
+    total_duration: Optional[int] = None
+    total_price_min: Optional[str] = None
     date: str
     time: str
     stylist_id: int
