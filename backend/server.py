@@ -276,26 +276,46 @@ async def get_time_slots(date: str, stylist_id: Optional[int] = None):
 
 @api_router.post("/bookings", response_model=dict, status_code=201)
 async def create_booking(booking_data: BookingCreate):
-    """Create a new booking appointment"""
+    """Create a new booking appointment with single or multiple services"""
     try:
         reference = generate_reference()
         
-        booking = Booking(
-            reference=reference,
-            service_category=booking_data.service_category,
-            service_name=booking_data.service_name,
-            service_price=booking_data.service_price,
-            service_duration=booking_data.service_duration,
-            date=booking_data.date,
-            time=booking_data.time,
-            stylist_id=booking_data.stylist_id,
-            stylist_name=booking_data.stylist_name,
-            client_first_name=booking_data.client.first_name,
-            client_last_name=booking_data.client.last_name,
-            client_email=booking_data.client.email,
-            client_phone=booking_data.client.phone,
-            client_notes=booking_data.client.notes or ""
-        )
+        # Handle multiple services
+        if booking_data.services and len(booking_data.services) > 0:
+            services_list = [s.dict() for s in booking_data.services]
+            booking = Booking(
+                reference=reference,
+                services=services_list,
+                total_duration=booking_data.total_duration,
+                total_price_min=booking_data.total_price_min,
+                date=booking_data.date,
+                time=booking_data.time,
+                stylist_id=booking_data.stylist_id,
+                stylist_name=booking_data.stylist_name,
+                client_first_name=booking_data.client.first_name,
+                client_last_name=booking_data.client.last_name,
+                client_email=booking_data.client.email,
+                client_phone=booking_data.client.phone,
+                client_notes=booking_data.client.notes or ""
+            )
+        else:
+            # Legacy single service booking
+            booking = Booking(
+                reference=reference,
+                service_category=booking_data.service_category,
+                service_name=booking_data.service_name,
+                service_price=booking_data.service_price,
+                service_duration=booking_data.service_duration,
+                date=booking_data.date,
+                time=booking_data.time,
+                stylist_id=booking_data.stylist_id,
+                stylist_name=booking_data.stylist_name,
+                client_first_name=booking_data.client.first_name,
+                client_last_name=booking_data.client.last_name,
+                client_email=booking_data.client.email,
+                client_phone=booking_data.client.phone,
+                client_notes=booking_data.client.notes or ""
+            )
         
         booking_dict = booking.dict()
         booking_dict["created_at"] = datetime.utcnow()
@@ -304,20 +324,30 @@ async def create_booking(booking_data: BookingCreate):
         
         logger.info(f"Booking created: {reference} for {booking_data.client.email}")
         
-        return {
+        # Return appropriate response based on booking type
+        response = {
             "id": booking.id,
             "reference": reference,
             "status": "confirmed",
-            "service_category": booking.service_category,
-            "service_name": booking.service_name,
-            "service_price": booking.service_price,
-            "service_duration": booking.service_duration,
             "date": booking.date,
             "time": booking.time,
             "stylist_name": booking.stylist_name,
             "client_name": f"{booking.client_first_name} {booking.client_last_name}",
             "client_email": booking.client_email,
             "created_at": booking.created_at.isoformat()
+        }
+        
+        if booking.services:
+            response["services"] = booking.services
+            response["total_duration"] = booking.total_duration
+            response["total_price_min"] = booking.total_price_min
+        else:
+            response["service_category"] = booking.service_category
+            response["service_name"] = booking.service_name
+            response["service_price"] = booking.service_price
+            response["service_duration"] = booking.service_duration
+        
+        return response
         }
     except Exception as e:
         logger.error(f"Error creating booking: {str(e)}")
