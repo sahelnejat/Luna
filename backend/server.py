@@ -348,7 +348,6 @@ async def create_booking(booking_data: BookingCreate):
             response["service_duration"] = booking.service_duration
         
         return response
-        }
     except Exception as e:
         logger.error(f"Error creating booking: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to create booking")
