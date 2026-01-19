@@ -23,9 +23,15 @@ const HomePage = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
+        {/* Background Image */}
         <div ref={heroRef} className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[#0d0d0f]" />
+          <img
+            src={salonImages.hero}
+            alt="Professional Hair Styling"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0d0d0f]/70 via-[#0d0d0f]/50 to-[#0d0d0f]" />
           {/* Decorative Elements */}
           <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#c9a96e]/5 blur-3xl animate-float" />
           <div className="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full bg-[#c9a96e]/3 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
