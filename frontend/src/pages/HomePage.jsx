@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Sparkles, Heart, Award } from 'lucide-react';
-import { services, testimonials, salonInfo } from '../data/mock';
+import { services, testimonials, salonInfo, salonImages } from '../data/mock';
 import ServiceCard from '../components/ui/ServiceCard';
 
 const HomePage = () => {
