@@ -9,19 +9,8 @@
     }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
 .App-link {
-    color: #61dafb;
+    color: #c9a96e;
 }
 
 @keyframes App-logo-spin {
@@ -31,4 +20,37 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+/* Smooth page transitions */
+main {
+    min-height: 100vh;
+}
+
+/* Custom scrollbar styles */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove default focus outline and add custom */
+*:focus {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: 2px solid #c9a96e;
+    outline-offset: 2px;
+}
+
+/* Prevent layout shift */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Better text rendering */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
