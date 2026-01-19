@@ -67,25 +67,37 @@ const BookingPage = () => {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    
-    // Generate booking reference
-    const reference = `LUNA-${Date.now().toString(36).toUpperCase()}`;
-    setBookingReference(reference);
-    
-    console.log('Booking submitted:', {
-      service: selectedService?.category,
-      subService: selectedSubService?.name,
-      date: selectedDate,
-      time: selectedTime,
-      stylist: selectedStylist?.name,
-      client: clientInfo,
-      reference,
-    });
-    
-    setIsSubmitting(false);
-    setBookingConfirmed(true);
+    try {
+      const bookingData = {
+        service_category: selectedService?.category,
+        service_name: selectedSubService?.name,
+        service_price: selectedSubService?.price,
+        service_duration: selectedSubService?.duration,
+        date: format(selectedDate, 'yyyy-MM-dd'),
+        time: selectedTime,
+        stylist_id: selectedStylist?.id,
+        stylist_name: selectedStylist?.name,
+        client: {
+          first_name: clientInfo.firstName,
+          last_name: clientInfo.lastName,
+          email: clientInfo.email,
+          phone: clientInfo.phone,
+          notes: clientInfo.notes
+        }
+      };
+
+      const response = await axios.post(`${API}/bookings`, bookingData);
+      
+      setBookingReference(response.data.reference);
+      setBookingConfirmed(true);
+      
+      console.log('Booking confirmed:', response.data);
+    } catch (error) {
+      console.error('Error creating booking:', error);
+      alert('Failed to create booking. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const canProceed = () => {
