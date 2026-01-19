@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, Award, Users, Sparkles } from 'lucide-react';
-import { salonInfo } from '../data/mock';
+import { salonInfo, salonImages } from '../data/mock';
 
 const AboutPage = () => {
   return (
