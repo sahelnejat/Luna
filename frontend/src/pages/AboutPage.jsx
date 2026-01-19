@@ -83,16 +83,29 @@ const AboutPage = () => {
               </div>
             </div>
 
-            {/* Logo Display */}
-            <div className="flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-[#c9a96e]/10 rounded-full blur-3xl scale-150" />
-                <img
-                  src={salonInfo.logo}
-                  alt="Luna Hair Salon"
-                  className="relative z-10 w-64 lg:w-80 h-auto animate-float"
-                />
+            {/* Image Gallery */}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
+                  <img
+                    src={salonImages.glamorousHair}
+                    alt="Beautiful hairstyle"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/60 to-transparent" />
+                </div>
+                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mt-8 group">
+                  <img
+                    src={salonImages.stylistWorking}
+                    alt="Professional styling"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/60 to-transparent" />
+                </div>
               </div>
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 border border-[#c9a96e]/20 rounded-2xl -z-10" />
+              <div className="absolute -top-4 -left-4 w-24 h-24 border border-[#c9a96e]/20 rounded-2xl -z-10" />
             </div>
           </div>
         </div>
