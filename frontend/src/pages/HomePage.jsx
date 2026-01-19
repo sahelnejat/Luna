@@ -221,7 +221,6 @@ const HomePage = () => {
                   <p className="text-[#bbb5ae] text-sm">{feature.desc}</p>
                 </div>
               ))}
-            </div>
           </div>
         </div>
       </section>
