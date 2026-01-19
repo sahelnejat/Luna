@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { format, addDays, startOfWeek, isSameDay, isAfter, isBefore } from 'date-fns';
+import { format, addDays, startOfWeek, isSameDay, isBefore } from 'date-fns';
+import axios from 'axios';
 import {
   ArrowRight,
   ArrowLeft,
@@ -16,6 +17,9 @@ import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
 import { services, timeSlots, stylists, salonInfo } from '../data/mock';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 const BookingPage = () => {
   const [step, setStep] = useState(1);
