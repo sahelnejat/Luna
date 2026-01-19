@@ -15,6 +15,17 @@ export const salonInfo = {
   logo: "https://customer-assets.emergentagent.com/job_beautyspot-10/artifacts/x8ire50k_1000129657-removebg-preview.png"
 };
 
+export const salonImages = {
+  hero: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=1920&q=80",
+  glamorousHair: "https://images.pexels.com/photos/3448813/pexels-photo-3448813.jpeg?auto=compress&w=800",
+  braidedHair: "https://images.unsplash.com/photo-1699640368217-9514aba80e58?w=800&q=80",
+  salonInterior: "https://images.unsplash.com/photo-1759134155377-4207d89b39ec?w=800&q=80",
+  stylistWorking: "https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?w=800&q=80",
+  eyebrowTreatment: "https://images.pexels.com/photos/8558247/pexels-photo-8558247.jpeg?auto=compress&w=800",
+  hairTreatment: "https://images.pexels.com/photos/3065171/pexels-photo-3065171.jpeg?auto=compress&w=800",
+  elegantBride: "https://images.unsplash.com/photo-1539025137588-9e6395c9396e?w=800&q=80"
+};
+
 export const services = [
   {
     id: 1,
