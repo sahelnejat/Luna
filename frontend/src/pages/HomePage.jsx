@@ -8,41 +8,26 @@ const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?st
 const HomePage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
-  const heroSlides = [
-    {
-      image: salonImages.glamorousHair,
-      title: "We want you to",
-      highlight: "love your hair",
-      subtitle: "Expert hair care and styling in the heart of Ottawa"
-    },
-    {
-      image: salonImages.stylistWorking,
-      title: "Experience the",
-      highlight: "Luna difference",
-      subtitle: "Where beauty meets care and creativity"
-    },
-    {
-      image: salonImages.hairTreatment,
-      title: "Transform your look",
-      highlight: "with confidence",
-      subtitle: "Professional stylists dedicated to your style"
-    }
+  const heroImages = [
+    salonImages.glamorousHair,
+    salonImages.stylistWorking,
+    salonImages.hairTreatment
   ];
 
   // Auto-advance slideshow every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     }, 4000);
     return () => clearInterval(interval);
-  }, [heroSlides.length]);
+  }, [heroImages.length]);
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Slideshow */}
-      <section className="relative h-screen flex items-center overflow-hidden">
-        {/* Slideshow Images */}
-        {heroSlides.map((slide, index) => (
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Slideshow Background Images */}
+        {heroImages.map((image, index) => (
           <div
             key={index}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -50,64 +35,49 @@ const HomePage = () => {
             }`}
           >
             <img
-              src={slide.image}
-              alt={slide.title}
+              src={image}
+              alt="Luna Hair Salon"
               className="w-full h-full object-cover"
             />
             {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+            <div className="absolute inset-0 bg-black/50" />
           </div>
         ))}
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="max-w-2xl">
-            {heroSlides.map((slide, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-700 ${
-                  index === currentSlide 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4 absolute'
-                }`}
-              >
-                {index === currentSlide && (
-                  <>
-                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight mb-6">
-                      {slide.title}<br />
-                      <span className="italic text-[#b8956c]">{slide.highlight}</span>
-                    </h1>
-                    <p className="text-white/80 text-lg lg:text-xl mb-10 max-w-lg">
-                      {slide.subtitle}
-                    </p>
-                  </>
-                )}
-              </div>
-            ))}
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href={MILANO_BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center justify-center group transition-all duration-300"
-              >
-                Book Appointment
-                <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-              </a>
-              <Link
-                to="/services"
-                className="border-2 border-white/30 hover:border-white text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center justify-center transition-all duration-300"
-              >
-                Our Services
-              </Link>
-            </div>
-          </div>
+        {/* Static Centered Content */}
+        <div className="relative z-10 text-center px-6">
+          {/* Luna Logo */}
+          <img
+            src={salonInfo.logo}
+            alt="Luna Hair Salon"
+            className="h-24 md:h-32 lg:h-40 w-auto mx-auto mb-8"
+          />
+          
+          {/* Tagline */}
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-light text-white mb-4 tracking-wide">
+            We want you to <span className="italic text-[#b8956c]">love your look</span>
+          </h1>
+          
+          <p className="text-white/70 text-base md:text-lg mb-10 max-w-md mx-auto">
+            Expert hair care and styling in the heart of Ottawa
+          </p>
+          
+          {/* Book Now Button */}
+          <a
+            href={MILANO_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-10 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center justify-center group transition-all duration-300"
+            data-testid="hero-book-now-btn"
+          >
+            Book Now
+            <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
         {/* Slide Indicators */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
-          {heroSlides.map((_, index) => (
+          {heroImages.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
@@ -119,14 +89,6 @@ const HomePage = () => {
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 right-10 hidden lg:block">
-          <div className="flex flex-col items-center text-white/50">
-            <span className="text-xs tracking-widest uppercase mb-2 rotate-90 origin-center translate-y-8">Scroll</span>
-            <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent" />
-          </div>
         </div>
       </section>
 
