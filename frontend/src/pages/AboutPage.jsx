@@ -5,143 +5,138 @@ import { salonInfo, salonImages } from '../data/mock';
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen pt-24">
+    <div className="min-h-screen bg-white pt-32 lg:pt-40">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32 bg-[#0d0d0f] relative overflow-hidden">
-        {/* Background Decoration */}
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-[#c9a96e]/5 blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-[#c9a96e]/3 blur-3xl" />
-        </div>
+      <section className="py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Content */}
+            <div>
+              <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
+                About Us
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#2c2c2c] leading-tight mb-6">
+                We want you to<br />
+                <span className="text-gradient-gold italic">love your hair</span>
+              </h1>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-6">
+                At Luna Hair Salon, we believe great hair is more than a look—it's a feeling. 
+                Located in the heart of Ottawa at CF Rideau Centre, our salon is a space where 
+                beauty meets care and creativity.
+              </p>
+              <p className="text-[#5a5a5a] leading-relaxed">
+                Our team of certified professionals is passionate about helping you look and feel 
+                your best, offering expert hair and beauty services tailored to your unique style. 
+                Whether it's a fresh cut, flawless color, or a restorative treatment, we're here 
+                to make every visit a confidence boost.
+              </p>
+            </div>
 
-        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <p className="text-[#c9a96e] text-sm uppercase tracking-[0.3em] mb-4 animate-fade-in">
-              Our Story
-            </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#f7f5f2] mb-6 animate-fade-in-up">
-              Perfect hair,<br />
-              <span className="text-gradient-gold">made with care</span>
-            </h1>
-            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent mx-auto" />
-          </div>
-
-          <div className="max-w-4xl mx-auto">
-            <p className="text-[#bbb5ae] text-lg lg:text-xl leading-relaxed text-center mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              At Luna Hair Salon, we believe great hair is more than a look—it's a feeling.
-              Located in the heart of Ottawa at CF Rideau Centre, our salon is a space where
-              beauty meets care and creativity.
-            </p>
-            <p className="text-[#bbb5ae] leading-relaxed text-center animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-              Our team of certified professionals is passionate about helping you look and feel
-              your best, offering expert hair and beauty services tailored to your unique style.
-              Whether it's a fresh cut, flawless color, or a restorative treatment, we're here
-              to make every visit a confidence boost.
-            </p>
+            {/* Image */}
+            <div className="relative">
+              <div className="rounded-2xl overflow-hidden aspect-[4/5]">
+                <img
+                  src={salonImages.glamorousHair}
+                  alt="Beautiful hairstyle"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-[#b8956c]/30 rounded-2xl -z-10" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Our Ethos Section */}
-      <section className="py-24 lg:py-32 bg-[#1a1a1f] relative">
+      <section className="py-24 lg:py-32 bg-[#faf9f7]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Image Grid */}
+            <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="relative rounded-xl overflow-hidden aspect-[3/4]">
+                  <img
+                    src={salonImages.stylistWorking}
+                    alt="Professional styling"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="relative rounded-xl overflow-hidden aspect-[3/4] mt-8">
+                  <img
+                    src={salonImages.eyebrowTreatment}
+                    alt="Beauty treatment"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* Content */}
-            <div>
-              <p className="text-[#c9a96e] text-sm uppercase tracking-[0.3em] mb-4">
-                Our Ethos
+            <div className="order-1 lg:order-2">
+              <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
+                Our Philosophy
               </p>
-              <h2 className="text-3xl lg:text-5xl font-light text-[#f7f5f2] mb-6 leading-tight">
+              <h2 className="text-3xl lg:text-5xl font-light text-[#2c2c2c] mb-6 leading-tight">
                 More than just a salon
               </h2>
-              <p className="text-[#bbb5ae] text-lg leading-relaxed mb-6">
-                Luna Hair Salon is a locally owned, woman-led space where luxury meets inclusivity.
-                We offer expert hair and beauty services in a welcoming environment that celebrates
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-6">
+                Luna Hair Salon is a locally owned, woman-led space where luxury meets inclusivity. 
+                We offer expert hair and beauty services in a welcoming environment that celebrates 
                 all styles and identities.
               </p>
-              <p className="text-[#bbb5ae] leading-relaxed mb-8">
-                Our team of passionate professionals is dedicated to helping every client feel
-                confident, seen, and cared for—whether you're here for a quick touch-up or a
+              <p className="text-[#5a5a5a] leading-relaxed mb-8">
+                Our team of passionate professionals is dedicated to helping every client feel 
+                confident, seen, and cared for—whether you're here for a quick touch-up or a 
                 full transformation.
               </p>
 
               {/* Values */}
-              <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Heart, text: 'Inclusive environment for all' },
-                  { icon: Award, text: 'Certified professional stylists' },
-                  { icon: Sparkles, text: 'Premium quality products' },
-                  { icon: Users, text: 'Woman-led, locally owned' },
+                  { icon: Heart, text: 'Inclusive for all' },
+                  { icon: Award, text: 'Certified stylists' },
+                  { icon: Sparkles, text: 'Premium products' },
+                  { icon: Users, text: 'Woman-led' },
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center space-x-4">
-                    <div className="w-10 h-10 rounded-full bg-[#c9a96e]/10 flex items-center justify-center">
-                      <item.icon className="w-5 h-5 text-[#c9a96e]" />
+                  <div key={index} className="flex items-center space-x-3 p-3 bg-white rounded-lg">
+                    <div className="w-10 h-10 rounded-full bg-[#b8956c]/10 flex items-center justify-center">
+                      <item.icon className="w-5 h-5 text-[#b8956c]" />
                     </div>
-                    <span className="text-[#f7f5f2]">{item.text}</span>
+                    <span className="text-[#2c2c2c] text-sm font-medium">{item.text}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            {/* Image Gallery */}
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] group">
-                  <img
-                    src={salonImages.glamorousHair}
-                    alt="Beautiful hairstyle"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/60 to-transparent" />
-                </div>
-                <div className="relative rounded-2xl overflow-hidden aspect-[3/4] mt-8 group">
-                  <img
-                    src={salonImages.stylistWorking}
-                    alt="Professional styling"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/60 to-transparent" />
-                </div>
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 border border-[#c9a96e]/20 rounded-2xl -z-10" />
-              <div className="absolute -top-4 -left-4 w-24 h-24 border border-[#c9a96e]/20 rounded-2xl -z-10" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission Statement */}
-      <section className="py-24 lg:py-32 bg-[#0d0d0f] relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#c9a96e]/3 blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
-          <div className="glass p-12 lg:p-16 rounded-2xl">
-            <p className="text-[#c9a96e] text-sm uppercase tracking-[0.3em] mb-6">
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+          <div className="bg-[#faf9f7] p-12 lg:p-16 rounded-2xl">
+            <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-6">
               Our Mission
             </p>
-            <blockquote className="text-2xl lg:text-3xl font-light text-[#f7f5f2] leading-relaxed italic">
-              "Hair and beauty upkeep isn't just about looking good—it's about feeling your best,
+            <blockquote className="text-2xl lg:text-3xl font-light text-[#2c2c2c] leading-relaxed italic">
+              "Hair and beauty upkeep isn't just about looking good—it's about feeling your best, 
               showing up with confidence, and honoring the time you take for yourself."
             </blockquote>
-            <div className="w-16 h-[1px] bg-[#c9a96e] mx-auto mt-8" />
+            <div className="w-16 h-[2px] bg-[#b8956c] mx-auto mt-8" />
           </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="py-24 lg:py-32 bg-[#1a1a1f]">
+      <section className="py-24 lg:py-32 bg-[#faf9f7]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
-            <p className="text-[#c9a96e] text-sm uppercase tracking-[0.3em] mb-4">
-              Meet The Team
+            <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
+              Our Team
             </p>
-            <h2 className="text-3xl lg:text-5xl font-light text-[#f7f5f2] mb-6">
+            <h2 className="text-3xl lg:text-5xl font-light text-[#2c2c2c]">
               Expert Stylists
             </h2>
-            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#c9a96e] to-transparent mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -150,19 +145,16 @@ const AboutPage = () => {
               { name: 'Emma Chen', role: 'Cut & Style Expert', years: '6+ years' },
               { name: 'Olivia Brown', role: 'Bridal & Updos', years: '10+ years' },
             ].map((member, index) => (
-              <div
-                key={index}
-                className="group text-center"
-              >
-                {/* Avatar Placeholder */}
-                <div className="w-48 h-48 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#c9a96e]/20 to-[#1a1a1f] flex items-center justify-center border border-[#c9a96e]/10 group-hover:border-[#c9a96e]/30 transition-colors">
-                  <span className="text-5xl text-[#c9a96e]/40">
+              <div key={index} className="text-center bg-white p-8 rounded-xl">
+                {/* Avatar */}
+                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#b8956c]/20 to-[#faf9f7] flex items-center justify-center">
+                  <span className="text-4xl text-[#b8956c]">
                     {member.name.charAt(0)}
                   </span>
                 </div>
-                <h3 className="text-xl text-[#f7f5f2] font-medium mb-1">{member.name}</h3>
-                <p className="text-[#c9a96e] text-sm mb-1">{member.role}</p>
-                <p className="text-[#bbb5ae] text-sm">{member.years}</p>
+                <h3 className="text-xl text-[#2c2c2c] font-medium mb-1">{member.name}</h3>
+                <p className="text-[#b8956c] text-sm mb-1">{member.role}</p>
+                <p className="text-[#8a8a8a] text-sm">{member.years}</p>
               </div>
             ))}
           </div>
@@ -170,17 +162,17 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-[#0d0d0f]">
+      <section className="py-24 lg:py-32 bg-[#2c2c2c]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-light text-[#f7f5f2] mb-6">
+          <h2 className="text-3xl lg:text-4xl font-light text-white mb-6">
             Ready to experience the Luna difference?
           </h2>
-          <p className="text-[#bbb5ae] text-lg mb-10">
+          <p className="text-gray-400 text-lg mb-10">
             Book your appointment today and let our expert team transform your look.
           </p>
           <Link
             to="/booking"
-            className="btn-gold px-10 py-5 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
+            className="btn-gold px-10 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
           >
             Book Your Appointment
             <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
