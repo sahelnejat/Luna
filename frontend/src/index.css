@@ -5,18 +5,18 @@
 @tailwind utilities;
 
 :root {
-  /* Luna Hair Salon Brand Colors */
-  --luna-dark: #0d0d0f;
-  --luna-darker: #1a1a1f;
-  --luna-gold: #c9a96e;
-  --luna-gold-light: #dfc291;
-  --luna-gold-dark: #a68b4d;
-  --luna-cream: #f7f5f2;
-  --luna-silver: #d4d6e1;
-  --luna-silver-dark: #9a9caa;
-  --luna-text-light: #ffffff;
-  --luna-text-subtle: #bbb5ae;
-  --luna-accent: #61525a;
+  /* Luna Hair Salon - Light Theme */
+  --luna-white: #ffffff;
+  --luna-cream: #faf9f7;
+  --luna-light-gray: #f5f4f2;
+  --luna-medium-gray: #e8e6e3;
+  --luna-text-dark: #2c2c2c;
+  --luna-text-medium: #5a5a5a;
+  --luna-text-light: #8a8a8a;
+  --luna-gold: #b8956c;
+  --luna-gold-dark: #9a7a55;
+  --luna-gold-light: #d4b896;
+  --luna-accent: #c9a96e;
 }
 
 * {
@@ -31,8 +31,8 @@ html {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: var(--luna-dark);
-  color: var(--luna-cream);
+  background-color: var(--luna-white);
+  color: var(--luna-text-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -43,6 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
   letter-spacing: 0.02em;
+  color: var(--luna-text-dark);
 }
 
 /* Custom Scrollbar */
@@ -51,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--luna-darker);
+  background: var(--luna-light-gray);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -60,13 +61,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--luna-gold-light);
+  background: var(--luna-gold-dark);
 }
 
 /* Selection */
 ::selection {
   background: var(--luna-gold);
-  color: var(--luna-dark);
+  color: var(--luna-white);
 }
 
 /* Animations */
@@ -108,27 +109,12 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(201, 169, 110, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(201, 169, 110, 0.5);
-  }
-}
-
 @keyframes line-expand {
   from {
     transform: scaleX(0);
   }
   to {
     transform: scaleX(1);
-  }
-}
-
-@keyframes draw-in {
-  to {
-    stroke-dashoffset: 0;
   }
 }
 
@@ -144,16 +130,6 @@ h1, h2, h3, h4, h5, h6 {
   animation: float 6s ease-in-out infinite;
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, transparent, rgba(201, 169, 110, 0.3), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 3s infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
 .animate-line-expand {
   animation: line-expand 0.8s ease-out forwards;
   transform-origin: left;
@@ -165,58 +141,55 @@ h1, h2, h3, h4, h5, h6 {
 .delay-300 { animation-delay: 300ms; }
 .delay-400 { animation-delay: 400ms; }
 .delay-500 { animation-delay: 500ms; }
-.delay-600 { animation-delay: 600ms; }
-.delay-700 { animation-delay: 700ms; }
-.delay-800 { animation-delay: 800ms; }
 
-/* Glass morphism */
+/* Glass morphism - Light version */
 .glass {
-  background: rgba(26, 26, 31, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(201, 169, 110, 0.1);
+  border: 1px solid rgba(184, 149, 108, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-.glass-light {
-  background: rgba(247, 245, 242, 0.05);
+.glass-dark {
+  background: rgba(44, 44, 44, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(247, 245, 242, 0.1);
 }
 
 /* Gold gradient text */
 .text-gradient-gold {
-  background: linear-gradient(135deg, var(--luna-gold-light), var(--luna-gold), var(--luna-gold-dark));
+  background: linear-gradient(135deg, var(--luna-gold-dark), var(--luna-gold), var(--luna-gold-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Button styles */
+/* Button styles - Light theme */
 .btn-gold {
-  background: linear-gradient(135deg, var(--luna-gold), var(--luna-gold-dark));
-  color: var(--luna-dark);
+  background: var(--luna-gold);
+  color: var(--luna-white);
   font-weight: 600;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
 }
 
 .btn-gold:hover {
-  background: linear-gradient(135deg, var(--luna-gold-light), var(--luna-gold));
+  background: var(--luna-gold-dark);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+  box-shadow: 0 10px 30px rgba(184, 149, 108, 0.3);
 }
 
 .btn-outline-gold {
   background: transparent;
-  border: 1px solid var(--luna-gold);
+  border: 2px solid var(--luna-gold);
   color: var(--luna-gold);
   transition: all 0.3s ease;
 }
 
 .btn-outline-gold:hover {
   background: var(--luna-gold);
-  color: var(--luna-dark);
+  color: var(--luna-white);
 }
 
 /* Divider line */
@@ -232,55 +205,63 @@ h1, h2, h3, h4, h5, h6 {
 
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Page transitions */
-.page-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 /* Input focus states */
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--luna-gold) !important;
-  box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.2);
+  box-shadow: 0 0 0 3px rgba(184, 149, 108, 0.15);
 }
 
-/* Remove default styling */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  cursor: pointer;
+/* Section backgrounds */
+.bg-cream {
+  background-color: var(--luna-cream);
+}
+
+.bg-light-gray {
+  background-color: var(--luna-light-gray);
+}
+
+/* Text colors */
+.text-gold {
+  color: var(--luna-gold);
+}
+
+.text-dark {
+  color: var(--luna-text-dark);
+}
+
+.text-medium {
+  color: var(--luna-text-medium);
+}
+
+.text-light {
+  color: var(--luna-text-light);
 }
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 40 20% 96%;
-    --card: 0 0% 8%;
-    --card-foreground: 40 20% 96%;
-    --popover: 0 0% 8%;
-    --popover-foreground: 40 20% 96%;
-    --primary: 40 45% 55%;
-    --primary-foreground: 0 0% 5%;
-    --secondary: 0 0% 14%;
-    --secondary-foreground: 40 20% 96%;
-    --muted: 0 0% 14%;
-    --muted-foreground: 40 10% 70%;
-    --accent: 340 10% 35%;
-    --accent-foreground: 40 20% 96%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 40 20% 96%;
-    --border: 40 20% 20%;
-    --input: 40 20% 20%;
-    --ring: 40 45% 55%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 17%;
+    --card: 40 20% 98%;
+    --card-foreground: 0 0% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 17%;
+    --primary: 32 35% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 15% 95%;
+    --secondary-foreground: 0 0% 17%;
+    --muted: 40 15% 95%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 32 35% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 32 35% 55%;
     --radius: 0.5rem;
   }
 }
