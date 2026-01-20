@@ -219,4 +219,4 @@ test_plan:
 
 agent_communication:
   - agent: "testing"
-    message: "Comprehensive backend API testing completed successfully. All 8 endpoints (health check, services, stylists, timeslots, create booking, get bookings, create contact, get contacts) are working correctly. Backend URL https://beautyspot-10.preview.emergentagent.com/api is accessible and all APIs return proper responses with correct status codes. MongoDB integration is working for data persistence. Created backend_test.py for future testing. No critical issues found."
+    message: "Comprehensive backend API testing completed successfully. All 8 endpoints (health check, services, stylists, timeslots, create booking, get bookings, create contact, get contacts) are working correctly. Backend URL https://lunasalon.preview.emergentagent.com/api is accessible and all APIs return proper responses with correct status codes. MongoDB integration is working for data persistence. Created backend_test.py for future testing. No critical issues found."
