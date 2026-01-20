@@ -153,7 +153,15 @@ const Footer = () => {
               © {currentYear} Luna Hair Salon. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-2 md:mt-0">
-              Locally owned, woman-led salon in Ottawa
+              Made and Designed by{' '}
+              <a 
+                href="https://agencyskyline.ca" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-[#b8956c] hover:text-[#d4b896] transition-colors"
+              >
+                Skyline Agency
+              </a>
             </p>
           </div>
         </div>
