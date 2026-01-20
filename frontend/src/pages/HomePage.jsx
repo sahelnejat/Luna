@@ -1,72 +1,131 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Sparkles, Heart, Award, Scissors, Palette, Star } from 'lucide-react';
+import { ArrowRight, MapPin, Scissors, Palette, Sparkles, Star } from 'lucide-react';
 import { services, testimonials, salonInfo, salonImages } from '../data/mock';
 
-const HomePage = () => {
-  const heroRef = useRef(null);
+const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
 
+const HomePage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const heroSlides = [
+    {
+      image: salonImages.glamorousHair,
+      title: "We want you to",
+      highlight: "love your hair",
+      subtitle: "Expert hair care and styling in the heart of Ottawa"
+    },
+    {
+      image: salonImages.stylistWorking,
+      title: "Experience the",
+      highlight: "Luna difference",
+      subtitle: "Where beauty meets care and creativity"
+    },
+    {
+      image: salonImages.hairTreatment,
+      title: "Transform your look",
+      highlight: "with confidence",
+      subtitle: "Professional stylists dedicated to your style"
+    }
+  ];
+
+  // Auto-advance slideshow every 4 seconds
   useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const scrolled = window.scrollY;
-        heroRef.current.style.transform = `translateY(${scrolled * 0.3}px)`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [heroSlides.length]);
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center overflow-hidden pt-32 lg:pt-40">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Content */}
-            <div className="order-2 lg:order-1">
-              <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4 animate-fade-in">
-                Welcome to Luna Hair Salon
-              </p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-[#2c2c2c] leading-tight mb-6 animate-fade-in-up">
-                We want you to<br />
-                <span className="text-gradient-gold italic">love your hair</span>
-              </h1>
-              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-                At Luna Hair Salon, we offer you a unique salon experience to escape and feel 
-                rejuvenated. Our professionally trained stylists will help make your inner 
-                and outer beauty shine.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-                <Link
-                  to="/booking"
-                  className="btn-gold px-8 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center justify-center group"
-                >
-                  Book Appointment
-                  <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/services"
-                  className="btn-outline-gold px-8 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center justify-center"
-                >
-                  Our Services
-                </Link>
-              </div>
-            </div>
+      {/* Hero Section with Slideshow */}
+      <section className="relative h-screen flex items-center overflow-hidden">
+        {/* Slideshow Images */}
+        {heroSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+          </div>
+        ))}
 
-            {/* Hero Image */}
-            <div className="order-1 lg:order-2 relative">
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] lg:aspect-[3/4]">
-                <img
-                  src={salonImages.glamorousHair}
-                  alt="Beautiful hairstyle"
-                  className="w-full h-full object-cover"
-                />
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="max-w-2xl">
+            {heroSlides.map((slide, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-700 ${
+                  index === currentSlide 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-4 absolute'
+                }`}
+              >
+                {index === currentSlide && (
+                  <>
+                    <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight mb-6">
+                      {slide.title}<br />
+                      <span className="italic text-[#b8956c]">{slide.highlight}</span>
+                    </h1>
+                    <p className="text-white/80 text-lg lg:text-xl mb-10 max-w-lg">
+                      {slide.subtitle}
+                    </p>
+                  </>
+                )}
               </div>
-              {/* Decorative element */}
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 border-2 border-[#b8956c]/30 rounded-2xl -z-10" />
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#b8956c]/10 rounded-full -z-10" />
+            ))}
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href={MILANO_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center justify-center group transition-all duration-300"
+              >
+                Book Appointment
+                <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
+              </a>
+              <Link
+                to="/services"
+                className="border-2 border-white/30 hover:border-white text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center justify-center transition-all duration-300"
+              >
+                Our Services
+              </Link>
             </div>
+          </div>
+        </div>
+
+        {/* Slide Indicators */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex space-x-3 z-10">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-[#b8956c] w-8' 
+                  : 'bg-white/40 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-10 right-10 hidden lg:block">
+          <div className="flex flex-col items-center text-white/50">
+            <span className="text-xs tracking-widest uppercase mb-2 rotate-90 origin-center translate-y-8">Scroll</span>
+            <div className="w-[1px] h-16 bg-gradient-to-b from-white/50 to-transparent" />
           </div>
         </div>
       </section>
@@ -110,6 +169,8 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
+              {/* Decorative element */}
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-[#b8956c]/20 rounded-xl -z-10" />
             </div>
 
             {/* Content */}
@@ -143,21 +204,21 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 lg:py-32 bg-[#faf9f7]">
+      <section className="py-24 lg:py-32 bg-[#1a1a1a]">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
               Our Services
             </p>
-            <h2 className="text-3xl lg:text-5xl font-light text-[#2c2c2c] mb-4">
+            <h2 className="text-3xl lg:text-5xl font-light text-white mb-4">
               What we offer
             </h2>
-            <p className="text-[#5a5a5a] max-w-2xl mx-auto">
+            <p className="text-white/60 max-w-2xl mx-auto">
               We are happy to offer a full range of services in the salon, from bang trims to balayage.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { icon: Scissors, title: 'Haircuts & Styling', desc: 'Expert cuts, blowouts, and styling for any occasion', image: salonImages.stylistWorking },
               { icon: Palette, title: 'Color Services', desc: 'From highlights to balayage, we create your perfect color', image: salonImages.glamorousHair },
@@ -166,7 +227,7 @@ const HomePage = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
+                className="group bg-[#252525] rounded-xl overflow-hidden hover:bg-[#2a2a2a] transition-all duration-300"
               >
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
@@ -176,11 +237,11 @@ const HomePage = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <div className="w-10 h-10 rounded-full bg-[#b8956c]/10 flex items-center justify-center mb-4">
+                  <div className="w-10 h-10 rounded-full bg-[#b8956c]/20 flex items-center justify-center mb-4">
                     <service.icon className="w-5 h-5 text-[#b8956c]" />
                   </div>
-                  <h3 className="text-xl font-medium text-[#2c2c2c] mb-2">{service.title}</h3>
-                  <p className="text-[#5a5a5a] text-sm mb-4">{service.desc}</p>
+                  <h3 className="text-xl font-medium text-white mb-2">{service.title}</h3>
+                  <p className="text-white/60 text-sm mb-4">{service.desc}</p>
                   <Link
                     to="/services"
                     className="inline-flex items-center text-[#b8956c] text-sm font-medium group/link"
@@ -196,25 +257,23 @@ const HomePage = () => {
       </section>
 
       {/* CTA Banner */}
-      <section className="py-20 bg-[#2c2c2c] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-[#b8956c] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#b8956c] rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+      <section className="py-20 bg-[#b8956c]">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-light text-white mb-4">
             Ready for your transformation?
           </h2>
-          <p className="text-gray-400 text-lg mb-8">
+          <p className="text-white/80 text-lg mb-8">
             Book your appointment today and let our expert stylists help you look and feel amazing.
           </p>
-          <Link
-            to="/booking"
-            className="btn-gold px-10 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
+          <a
+            href={MILANO_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#1a1a1a] hover:bg-black text-white px-10 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
           >
             Book Now
             <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
         </div>
       </section>
 
@@ -230,12 +289,11 @@ const HomePage = () => {
             </h2>
           </div>
 
-          {/* Price Categories Tabs */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             {services.slice(0, 4).map((category) => (
               <div
                 key={category.id}
-                className="bg-[#faf9f7] rounded-xl p-6 text-center hover:bg-[#b8956c]/10 transition-colors cursor-pointer"
+                className="bg-[#faf9f7] rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300"
               >
                 <h3 className="text-[#2c2c2c] font-medium mb-3">{category.category}</h3>
                 <p className="text-[#b8956c] text-2xl font-light">
@@ -249,7 +307,7 @@ const HomePage = () => {
           <div className="text-center">
             <Link
               to="/services"
-              className="btn-outline-gold px-8 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
+              className="border-2 border-[#b8956c] text-[#b8956c] hover:bg-[#b8956c] hover:text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
             >
               View Full Price List
               <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -276,7 +334,6 @@ const HomePage = () => {
                 key={testimonial.id}
                 className="bg-white p-8 rounded-xl shadow-sm"
               >
-                {/* Stars */}
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <svg
@@ -341,13 +398,15 @@ const HomePage = () => {
                 </div>
               </div>
               
-              <Link
-                to="/contact"
-                className="btn-gold px-8 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
+              <a
+                href={MILANO_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
               >
-                Contact Us
+                Book Now
                 <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
