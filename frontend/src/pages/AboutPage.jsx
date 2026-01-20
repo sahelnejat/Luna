@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Heart, Award, Users, Sparkles } from 'lucide-react';
 import { salonInfo, salonImages } from '../data/mock';
 
+const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
+
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white pt-32 lg:pt-40">
