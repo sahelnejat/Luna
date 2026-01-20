@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook } from 'lucide-react';
 import { salonInfo } from '../../data/mock';
 
+const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#2c2c2c] text-white">
+    <footer className="bg-[#1a1a1a] text-white">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -17,7 +19,7 @@ const Footer = () => {
               <img
                 src={salonInfo.logo}
                 alt="Luna Hair Salon"
-                className="h-16 w-auto brightness-0 invert"
+                className="h-16 w-auto"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
@@ -50,16 +52,31 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="space-y-3">
-              {['Home', 'About', 'Services', 'Contact', 'Book Now'].map((link) => (
-                <li key={link}>
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'About', path: '/about' },
+                { name: 'Services', path: '/services' },
+                { name: 'Contact', path: '/contact' },
+              ].map((link) => (
+                <li key={link.name}>
                   <Link
-                    to={link === 'Book Now' ? '/booking' : `/${link.toLowerCase() === 'home' ? '' : link.toLowerCase()}`}
+                    to={link.path}
                     className="text-gray-400 hover:text-[#b8956c] transition-colors text-sm"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a
+                  href={MILANO_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#b8956c] hover:text-[#d4b896] transition-colors text-sm font-medium"
+                >
+                  Book Now →
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -129,7 +146,7 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700">
+      <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <p className="text-gray-500 text-xs">
