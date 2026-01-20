@@ -50,7 +50,7 @@ const HomePage = () => {
           <img
             src={salonInfo.logo}
             alt="Luna Hair Salon"
-            className="h-24 md:h-32 lg:h-40 w-auto mx-auto mb-8"
+            className="h-36 md:h-48 lg:h-64 w-auto mx-auto mb-8"
           />
           
           {/* Tagline */}
