@@ -107,7 +107,7 @@ const ServicesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 lg:py-32 bg-[#2c2c2c]">
+      <section className="py-24 lg:py-32 bg-[#1a1a1a]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-light text-white mb-6">
             Ready to book?
@@ -115,13 +115,15 @@ const ServicesPage = () => {
           <p className="text-gray-400 text-lg mb-10">
             Schedule your appointment online and let us help you look and feel amazing.
           </p>
-          <Link
-            to="/booking"
-            className="btn-gold px-10 py-4 text-sm tracking-wider uppercase rounded-sm inline-flex items-center group"
+          <a
+            href={MILANO_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-10 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
           >
             Book Now
             <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
-          </Link>
+          </a>
         </div>
       </section>
     </div>
