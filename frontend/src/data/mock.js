@@ -36,10 +36,9 @@ export const services = [
       { name: "HairCut", price: "$50+", duration: 45 },
       { name: "BlowDry", price: "$50+", duration: 30 },
       { name: "Wash Cut & BlowDry", price: "$70+", duration: 60 },
-      { name: "Dry Cut", price: "$40+", duration: 30 },
-      { name: "Fringe/Bang Trim", price: "$15+", duration: 15 },
       { name: "Up Do", price: "$150+", duration: 90 },
-      { name: "Half Up Do/Prom", price: "$75+", duration: 60 }
+      { name: "Half Up Do/Prom", price: "$75+", duration: 60 },
+      { name: "Perm", price: "$150", duration: 120 }
     ]
   },
   {
@@ -54,9 +53,7 @@ export const services = [
       { name: "Partial Highlights", price: "$140+", duration: 90 },
       { name: "Balayage", price: "$240+", duration: 150 },
       { name: "Partial Balayage", price: "$160+", duration: 120 },
-      { name: "Toner", price: "$65+", duration: 30 },
-      { name: "Color Correction", price: "Consultation", duration: 180 },
-      { name: "Lowlights", price: "$140+", duration: 90 }
+      { name: "Toner", price: "$65+", duration: 30 }
     ]
   },
   {
@@ -67,11 +64,7 @@ export const services = [
     items: [
       { name: "Hair Keratin", price: "$350+", duration: 180 },
       { name: "Deep Treatment", price: "$55+", duration: 45 },
-      { name: "Olaplex Treatment", price: "$75+", duration: 45 },
-      { name: "Scalp Detox", price: "$45+", duration: 30 },
-      { name: "Protein Treatment", price: "$65+", duration: 45 },
-      { name: "Moisture Repair", price: "$60+", duration: 45 },
-      { name: "Perm", price: "$150", duration: 120 }
+      { name: "Hair Extension", price: "Price upon consultation", duration: 180 }
     ]
   },
   {
@@ -84,7 +77,6 @@ export const services = [
       { name: "Eyebrow Shaping", price: "$20+", duration: 15 },
       { name: "Eyelash Extensions", price: "$100+", duration: 90 },
       { name: "Full Face Threading", price: "$50+", duration: 30 },
-      { name: "Hair Extension", price: "Consultation", duration: 180 },
       { name: "Free Consultation", price: "Free", duration: 30 }
     ]
   }
