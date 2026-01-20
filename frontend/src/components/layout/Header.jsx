@@ -104,10 +104,10 @@ const Header = () => {
               </Link>
               <a
                 href={`tel:${salonInfo.phone}`}
-                className="flex items-center text-white/80 hover:text-[#b8956c] transition-colors"
+                className="flex items-center justify-center bg-transparent border border-white/30 hover:border-[#b8956c] hover:bg-[#b8956c] text-white px-5 py-2.5 text-sm font-medium tracking-wider uppercase rounded-sm transition-all duration-300"
               >
                 <Phone className="w-4 h-4 mr-2" />
-                <span className="text-sm font-medium">{salonInfo.phone}</span>
+                Call
               </a>
               <a
                 href={MILANO_BOOKING_URL}
