@@ -6,23 +6,13 @@ import { services } from '../data/mock';
 const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=lunasalon";
 
 const ServicesPage = () => {
-  const [activeTab, setActiveTab] = useState('CUTS');
+  const [activeTab, setActiveTab] = useState('HAIRCUTS');
 
-  const tabs = ['CUTS', 'KIDS', 'STYLES', 'COLOURING', 'TREATMENTS', 'BEAUTY'];
+  const tabs = ['HAIRCUTS', 'COLOR', 'TREATMENTS', 'BEAUTY'];
 
   const servicesByTab = {
-    CUTS: services[0]?.items || [],
-    KIDS: [
-      { name: "Girl's Cut", price: '$50', duration: 30 },
-      { name: "Boy's Cut", price: '$35', duration: 20 },
-    ],
-    STYLES: [
-      { name: 'Blow-dry', price: '$50+', duration: 30 },
-      { name: 'Blow-dry with Curls', price: '$65+', duration: 45 },
-      { name: 'Updo', price: '$115+', duration: 60 },
-      { name: 'Blow-dry with Extensions', price: '$85+', duration: 45 },
-    ],
-    COLOURING: services[1]?.items || [],
+    HAIRCUTS: services[0]?.items || [],
+    COLOR: services[1]?.items || [],
     TREATMENTS: services[2]?.items || [],
     BEAUTY: services[3]?.items || [],
   };
