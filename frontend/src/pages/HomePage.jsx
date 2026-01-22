@@ -159,9 +159,9 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-24 lg:py-32 bg-[#1a1a1a]">
+      <section className="py-24 lg:py-32 bg-[#1a1a1a] overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
             <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
               Our Services
             </p>
@@ -171,7 +171,7 @@ const HomePage = () => {
             <p className="text-white/60 max-w-2xl mx-auto">
               We are happy to offer a full range of services in the salon, from bang trims to balayage.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -180,32 +180,31 @@ const HomePage = () => {
               { icon: Sparkles, title: 'Hair Treatments', desc: 'Keratin, deep conditioning, and restorative treatments', image: salonImages.hairTreatment },
               { icon: Star, title: 'Beauty Services', desc: 'Makeup, brows, lashes, and more to complete your look', image: salonImages.eyebrowTreatment },
             ].map((service, index) => (
-              <div
-                key={index}
-                className="group bg-[#252525] rounded-xl overflow-hidden hover:bg-[#2a2a2a] transition-all duration-300"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="w-10 h-10 rounded-full bg-[#b8956c]/20 flex items-center justify-center mb-4">
-                    <service.icon className="w-5 h-5 text-[#b8956c]" />
+              <Animated3DCard key={index} delay={index * 150}>
+                <div className="group bg-[#252525] rounded-xl overflow-hidden hover:bg-[#2a2a2a] transition-all duration-300 card-3d tilt-3d h-full">
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
                   </div>
-                  <h3 className="text-xl font-medium text-white mb-2">{service.title}</h3>
-                  <p className="text-white/60 text-sm mb-4">{service.desc}</p>
-                  <Link
-                    to="/services"
-                    className="inline-flex items-center text-[#b8956c] text-sm font-medium group/link"
-                  >
-                    <span className="mr-2">View services</span>
-                    <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
-                  </Link>
+                  <div className="p-6">
+                    <div className="w-10 h-10 rounded-full bg-[#b8956c]/20 flex items-center justify-center mb-4">
+                      <service.icon className="w-5 h-5 text-[#b8956c]" />
+                    </div>
+                    <h3 className="text-xl font-medium text-white mb-2">{service.title}</h3>
+                    <p className="text-white/60 text-sm mb-4">{service.desc}</p>
+                    <Link
+                      to="/services"
+                      className="inline-flex items-center text-[#b8956c] text-sm font-medium group/link"
+                    >
+                      <span className="mr-2">View services</span>
+                      <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </Animated3DCard>
             ))}
           </div>
         </div>
