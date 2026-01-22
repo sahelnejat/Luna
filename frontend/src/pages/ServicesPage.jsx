@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { services } from '../data/mock';
 
-const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=lunasalon";
+const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
 
 const ServicesPage = () => {
   const [activeTab, setActiveTab] = useState('HAIRCUTS');

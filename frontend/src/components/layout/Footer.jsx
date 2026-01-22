@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail, Clock, Instagram } from 'lucide-react';
 import { salonInfo } from '../../data/mock';
 
-const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=lunasalon";
+const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
