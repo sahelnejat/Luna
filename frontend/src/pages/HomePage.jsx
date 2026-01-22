@@ -97,19 +97,6 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Brand Partners */}
-      <section className="py-12 bg-[#faf9f7] border-y border-[#e8e6e3]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-center flex-wrap gap-12 opacity-50">
-            {['Davines', 'Olaplex', 'Redken', 'Kérastase', 'Moroccanoil'].map((brand) => (
-              <span key={brand} className="text-[#5a5a5a] text-sm uppercase tracking-widest font-medium">
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
