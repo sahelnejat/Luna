@@ -5,8 +5,8 @@ export const salonInfo = {
   tagline: "Your trusted Destination for expert hair care & beauty",
   address: "50 Rideau Street, Ottawa, Ontario K1N 9J7",
   location: "CF Rideau Centre, Top Floor",
-  phone: "+1 (613) 555-0123",
-  email: "hello@lunahairsalon.ca",
+  phone: "+1 613-693-4821",
+  email: "contact@lunahair.ca",
   hours: {
     weekdays: "9:00 AM - 8:00 PM",
     saturday: "9:00 AM - 6:00 PM",
