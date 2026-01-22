@@ -3,22 +3,157 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="description" content="A product of emergent.sh" />
-        <!--
-        manifest.json provides metadata used when your web app is installed on a
-        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-        -->
-        <!--
-        Notice the use of %PUBLIC_URL% in the tags above.
-        It will be replaced with the URL of the `public` folder during the build.
-        Only files inside the `public` folder can be referenced from the HTML.
-
-        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-        work correctly both with client-side routing and a non-root public URL.
-        Learn how to configure a non-root public URL by running `npm run build`.
-        -->
-        <title>Emergent | Fullstack App</title>
+        <meta name="theme-color" content="#1a1a1a" />
+        
+        <!-- Primary SEO Meta Tags -->
+        <title>Luna Hair Salon | Premier Hair Salon in Ottawa, CF Rideau Centre</title>
+        <meta name="title" content="Luna Hair Salon | Premier Hair Salon in Ottawa, CF Rideau Centre" />
+        <meta name="description" content="Luna Hair Salon offers expert haircuts, coloring, balayage, keratin treatments & beauty services in Ottawa. Located at CF Rideau Centre. Book your appointment today!" />
+        <meta name="keywords" content="hair salon Ottawa, haircut Ottawa, balayage Ottawa, hair color Ottawa, keratin treatment Ottawa, CF Rideau Centre salon, Luna Hair Salon, best hair salon Ottawa, women hair salon, beauty salon Ottawa" />
+        <meta name="author" content="Luna Hair Salon" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://lunahair.ca" />
+        
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="business.business" />
+        <meta property="og:title" content="Luna Hair Salon | Premier Hair Salon in Ottawa" />
+        <meta property="og:description" content="Expert haircuts, coloring, balayage & beauty services in Ottawa. Located at CF Rideau Centre. Book your appointment today!" />
+        <meta property="og:url" content="https://lunahair.ca" />
+        <meta property="og:image" content="https://images.pexels.com/photos/3448813/pexels-photo-3448813.jpeg?auto=compress&w=1200" />
+        <meta property="og:site_name" content="Luna Hair Salon" />
+        <meta property="business:contact_data:street_address" content="50 Rideau Street" />
+        <meta property="business:contact_data:locality" content="Ottawa" />
+        <meta property="business:contact_data:region" content="Ontario" />
+        <meta property="business:contact_data:postal_code" content="K1N 9J7" />
+        <meta property="business:contact_data:country_name" content="Canada" />
+        
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Luna Hair Salon | Premier Hair Salon in Ottawa" />
+        <meta name="twitter:description" content="Expert haircuts, coloring, balayage & beauty services in Ottawa. Located at CF Rideau Centre." />
+        <meta name="twitter:image" content="https://images.pexels.com/photos/3448813/pexels-photo-3448813.jpeg?auto=compress&w=1200" />
+        
+        <!-- Geographic Meta Tags -->
+        <meta name="geo.region" content="CA-ON" />
+        <meta name="geo.placename" content="Ottawa" />
+        <meta name="geo.position" content="45.426139;-75.693368" />
+        <meta name="ICBM" content="45.426139, -75.693368" />
+        
+        <!-- Structured Data - Local Business -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "HairSalon",
+            "name": "Luna Hair Salon",
+            "image": "https://images.pexels.com/photos/3448813/pexels-photo-3448813.jpeg?auto=compress&w=1200",
+            "url": "https://lunahair.ca",
+            "telephone": "+1-613-693-4821",
+            "email": "contact@lunahair.ca",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "50 Rideau Street, CF Rideau Centre, Top Floor",
+                "addressLocality": "Ottawa",
+                "addressRegion": "ON",
+                "postalCode": "K1N 9J7",
+                "addressCountry": "CA"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 45.426139,
+                "longitude": -75.693368
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "20:00"
+                },
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Saturday",
+                    "opens": "09:00",
+                    "closes": "18:00"
+                },
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": "Sunday",
+                    "opens": "10:00",
+                    "closes": "17:00"
+                }
+            ],
+            "priceRange": "$$",
+            "servesCuisine": "",
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5",
+                "reviewCount": "50"
+            },
+            "review": [
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Sarah L."
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "reviewBody": "Absolutely in love with my hair! The team really listened to what I wanted and made it even better. The salon is beautiful, welcoming, and the service is top-tier."
+                },
+                {
+                    "@type": "Review",
+                    "author": {
+                        "@type": "Person",
+                        "name": "Amira M."
+                    },
+                    "reviewRating": {
+                        "@type": "Rating",
+                        "ratingValue": "5"
+                    },
+                    "reviewBody": "From the moment I walked in, I felt cared for. The stylists are incredibly skilled and made me feel confident and comfortable throughout the entire process."
+                }
+            ],
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Hair Services",
+                "itemListElement": [
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Haircut",
+                            "description": "Professional haircut and styling"
+                        },
+                        "price": "50.00",
+                        "priceCurrency": "CAD"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Balayage",
+                            "description": "Hand-painted highlights for a natural look"
+                        },
+                        "price": "240.00",
+                        "priceCurrency": "CAD"
+                    },
+                    {
+                        "@type": "Offer",
+                        "itemOffered": {
+                            "@type": "Service",
+                            "name": "Hair Keratin Treatment",
+                            "description": "Smoothing keratin treatment"
+                        },
+                        "price": "350.00",
+                        "priceCurrency": "CAD"
+                    }
+                ]
+            }
+        }
+        </script>
+        
         <script src="https://assets.emergent.sh/scripts/emergent-main.js"></script>
         <!--
         These two scripts have been added for the Visual Edits, please do not edit or remove them
