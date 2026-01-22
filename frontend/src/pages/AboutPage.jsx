@@ -129,40 +129,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 lg:py-32 bg-[#faf9f7]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
-              Our Team
-            </p>
-            <h2 className="text-3xl lg:text-5xl font-light text-[#2c2c2c]">
-              Expert Stylists
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: 'Sofia Martinez', role: 'Color Specialist', years: '8+ years' },
-              { name: 'Emma Chen', role: 'Cut & Style Expert', years: '6+ years' },
-              { name: 'Olivia Brown', role: 'Bridal & Updos', years: '10+ years' },
-            ].map((member, index) => (
-              <div key={index} className="text-center bg-white p-8 rounded-xl">
-                {/* Avatar */}
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#b8956c]/20 to-[#faf9f7] flex items-center justify-center">
-                  <span className="text-4xl text-[#b8956c]">
-                    {member.name.charAt(0)}
-                  </span>
-                </div>
-                <h3 className="text-xl text-[#2c2c2c] font-medium mb-1">{member.name}</h3>
-                <p className="text-[#b8956c] text-sm mb-1">{member.role}</p>
-                <p className="text-[#8a8a8a] text-sm">{member.years}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 lg:py-32 bg-[#1a1a1a]">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
