@@ -62,6 +62,10 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-white pt-32 lg:pt-40">
+      <Helmet>
+        <title>Contact Us | Luna Hair Salon Ottawa - Book Your Appointment</title>
+        <meta name="description" content="Contact Luna Hair Salon in Ottawa. Visit us at CF Rideau Centre, call +1 613-693-4821, or email contact@lunahair.ca. Open 7 days a week." />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-16 lg:py-24 bg-[#faf9f7]">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
