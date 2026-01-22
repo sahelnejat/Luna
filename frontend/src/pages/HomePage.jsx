@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowRight, MapPin, Scissors, Palette, Sparkles, Star } from 'lucide-react';
 import { services, testimonials, salonInfo, salonImages } from '../data/mock';
+import { AnimatedSection, Animated3DCard, StaggeredContainer } from '../hooks/useScrollAnimation';
 
 const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?store=7bbffaa5-ecd4-4b93-a5b5-665ea16d281c";
 
