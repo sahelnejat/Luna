@@ -20,6 +20,10 @@ const ServicesPage = () => {
 
   return (
     <div className="min-h-screen bg-white pt-32 lg:pt-40">
+      <Helmet>
+        <title>Services & Pricing | Luna Hair Salon Ottawa - Haircuts, Coloring, Balayage</title>
+        <meta name="description" content="View Luna Hair Salon's services and pricing. Haircuts from $50, Balayage from $240, Keratin from $350. Expert hair coloring, treatments & beauty services in Ottawa." />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-16 lg:py-24 bg-[#faf9f7]">
         <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
