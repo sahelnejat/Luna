@@ -232,33 +232,32 @@ const HomePage = () => {
       </section>
 
       {/* Pricing Preview */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <AnimatedSection animation="fade-up" className="text-center mb-16">
             <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
               Pricing
             </p>
             <h2 className="text-3xl lg:text-5xl font-light text-[#2c2c2c] mb-4">
               Our prices
             </h2>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-            {services.slice(0, 4).map((category) => (
-              <div
-                key={category.id}
-                className="bg-[#faf9f7] rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-[#2c2c2c] font-medium mb-3">{category.category}</h3>
-                <p className="text-[#b8956c] text-2xl font-light">
-                  {category.items[0]?.price}
-                </p>
-                <p className="text-[#8a8a8a] text-sm">starting at</p>
-              </div>
+            {services.slice(0, 4).map((category, index) => (
+              <Animated3DCard key={category.id} delay={index * 100}>
+                <div className="bg-[#faf9f7] rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 tilt-3d h-full">
+                  <h3 className="text-[#2c2c2c] font-medium mb-3">{category.category}</h3>
+                  <p className="text-[#b8956c] text-2xl font-light">
+                    {category.items[0]?.price}
+                  </p>
+                  <p className="text-[#8a8a8a] text-sm">starting at</p>
+                </div>
+              </Animated3DCard>
             ))}
           </div>
 
-          <div className="text-center">
+          <AnimatedSection animation="fade-up" delay={400} className="text-center">
             <Link
               to="/services"
               className="border-2 border-[#b8956c] text-[#b8956c] hover:bg-[#b8956c] hover:text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
@@ -266,7 +265,7 @@ const HomePage = () => {
               View Full Price List
               <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </Link>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
