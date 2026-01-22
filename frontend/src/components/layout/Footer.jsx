@@ -28,20 +28,12 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/lunahairsalon_rideaucentre/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:bg-[#b8956c] hover:border-[#b8956c] hover:text-white transition-all duration-300"
               >
                 <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center text-gray-400 hover:bg-[#b8956c] hover:border-[#b8956c] hover:text-white transition-all duration-300"
-              >
-                <Facebook className="w-4 h-4" />
               </a>
             </div>
           </div>
