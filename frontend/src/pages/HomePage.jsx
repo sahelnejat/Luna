@@ -25,6 +25,10 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Luna Hair Salon | Premier Hair Salon in Ottawa, CF Rideau Centre</title>
+        <meta name="description" content="Luna Hair Salon offers expert haircuts, coloring, balayage, keratin treatments & beauty services in Ottawa. Located at CF Rideau Centre. Book your appointment today!" />
+      </Helmet>
       {/* Hero Section with Slideshow */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Slideshow Background Images */}
