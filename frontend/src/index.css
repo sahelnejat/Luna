@@ -274,3 +274,144 @@ input:focus, textarea:focus, select:focus {
     @apply bg-background text-foreground;
   }
 }
+
+/* 3D Scroll Animations */
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0) translateZ(0) rotateX(0);
+  }
+  50% {
+    transform: translateY(-15px) translateZ(20px) rotateX(2deg);
+  }
+}
+
+@keyframes rotateIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-30deg) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0) translateY(0);
+  }
+}
+
+@keyframes slideIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateZ(-100px) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) translateZ(0) translateY(0);
+  }
+}
+
+@keyframes flipIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0);
+  }
+}
+
+@keyframes scaleIn3D {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) scale3d(0.8, 0.8, 0.8) translateZ(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) scale3d(1, 1, 1) translateZ(0);
+  }
+}
+
+.animate-float-3d {
+  animation: float3D 6s ease-in-out infinite;
+}
+
+.animate-rotate-in-3d {
+  animation: rotateIn3D 1s ease-out forwards;
+}
+
+.animate-slide-in-3d {
+  animation: slideIn3D 0.8s ease-out forwards;
+}
+
+.animate-flip-in-3d {
+  animation: flipIn3D 0.8s ease-out forwards;
+}
+
+.animate-scale-in-3d {
+  animation: scaleIn3D 0.8s ease-out forwards;
+}
+
+/* 3D Card Effect */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d:hover {
+  transform: translateZ(20px) rotateX(5deg) rotateY(-5deg);
+}
+
+.card-3d-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-3d:hover .card-3d-inner {
+  transform: translateZ(30px);
+}
+
+/* Parallax depth layers */
+.parallax-container {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.parallax-layer-back {
+  transform: translateZ(-100px) scale(1.1);
+}
+
+.parallax-layer-front {
+  transform: translateZ(50px);
+}
+
+/* Tilt on hover */
+.tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.tilt-3d:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) translateZ(10px);
+}
+
+/* Glow effect */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(184, 149, 108, 0.3);
+}
+
+.glow-gold-hover:hover {
+  box-shadow: 0 0 50px rgba(184, 149, 108, 0.5);
+}
+
+/* Smooth 3D transitions */
+.transform-3d {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
