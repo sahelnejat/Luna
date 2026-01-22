@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { ArrowRight, MapPin, Scissors, Palette, Sparkles, Star } from 'lucide-react';
 import { services, testimonials, salonInfo, salonImages } from '../data/mock';
 
