@@ -9,6 +9,10 @@ const MILANO_BOOKING_URL = "https://milanoweb.milanocloud.com:1443/index.html?st
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-white pt-32 lg:pt-40">
+      <Helmet>
+        <title>About Us | Luna Hair Salon Ottawa - Woman-Led Salon at CF Rideau Centre</title>
+        <meta name="description" content="Learn about Luna Hair Salon - a locally owned, woman-led hair salon in Ottawa. Our certified stylists provide expert hair care and beauty services at CF Rideau Centre." />
+      </Helmet>
       {/* Hero Section */}
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
