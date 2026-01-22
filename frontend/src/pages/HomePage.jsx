@@ -309,25 +309,27 @@ const HomePage = () => {
       </section>
 
       {/* Location Section */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Map */}
-            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.513837385873!2d-75.69336792393981!3d45.42613927107429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce04ff4f3c6c8b%3A0x3c4b2d7f5c8e0c8e!2sCF%20Rideau%20Centre!5e0!3m2!1sen!2sca!4v1690000000000!5m2!1sen!2sca"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Luna Hair Salon Location"
-              />
-            </div>
+            <Animated3DCard delay={0}>
+              <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg card-3d">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.513837385873!2d-75.69336792393981!3d45.42613927107429!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce04ff4f3c6c8b%3A0x3c4b2d7f5c8e0c8e!2sCF%20Rideau%20Centre!5e0!3m2!1sen!2sca!4v1690000000000!5m2!1sen!2sca"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Luna Hair Salon Location"
+                />
+              </div>
+            </Animated3DCard>
 
             {/* Content */}
-            <div>
+            <AnimatedSection animation="fade-left" delay={200}>
               <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
                 Visit Us
               </p>
@@ -354,12 +356,12 @@ const HomePage = () => {
                 href={MILANO_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300"
+                className="bg-[#b8956c] hover:bg-[#a07d5c] text-white px-8 py-4 text-sm font-medium tracking-wider uppercase rounded-sm inline-flex items-center group transition-all duration-300 hover:scale-105"
               >
                 Book Now
                 <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" />
               </a>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
