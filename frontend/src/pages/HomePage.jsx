@@ -99,37 +99,37 @@ const HomePage = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-24 lg:py-32 bg-white">
+      <section className="py-24 lg:py-32 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image Grid */}
-            <div className="relative">
+            <AnimatedSection animation="fade-right" className="relative">
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <div className="relative rounded-xl overflow-hidden aspect-[3/4]">
+                <Animated3DCard className="space-y-4" delay={0}>
+                  <div className="relative rounded-xl overflow-hidden aspect-[3/4] card-3d">
                     <img
                       src={salonImages.stylistWorking}
                       alt="Professional styling"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-                </div>
-                <div className="space-y-4 pt-8">
-                  <div className="relative rounded-xl overflow-hidden aspect-[3/4]">
+                </Animated3DCard>
+                <Animated3DCard className="space-y-4 pt-8" delay={200}>
+                  <div className="relative rounded-xl overflow-hidden aspect-[3/4] card-3d">
                     <img
                       src={salonImages.hairTreatment}
                       alt="Hair treatment"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-                </div>
+                </Animated3DCard>
               </div>
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-32 h-32 border-2 border-[#b8956c]/20 rounded-xl -z-10" />
-            </div>
+            </AnimatedSection>
 
             {/* Content */}
-            <div>
+            <AnimatedSection animation="fade-left" delay={300}>
               <p className="text-[#b8956c] text-sm uppercase tracking-[0.3em] mb-4">
                 About Us
               </p>
@@ -153,7 +153,7 @@ const HomePage = () => {
                 <span className="mr-2">Learn more about us</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
               </Link>
-            </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
