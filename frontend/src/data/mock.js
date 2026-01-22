@@ -85,20 +85,14 @@ export const services = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah M.",
-    text: "Luna Hair Salon transformed my hair completely! The balayage is absolutely stunning and the team made me feel so comfortable.",
+    name: "Sarah. L",
+    text: "Absolutely in love with my hair! The team really listened to what I wanted and made it even better. The salon is beautiful, welcoming, and the service is top-tier. I'll definitely be coming back!",
     rating: 5
   },
   {
     id: 2,
-    name: "Emily R.",
-    text: "Best salon experience in Ottawa. The attention to detail and luxurious atmosphere make every visit special.",
-    rating: 5
-  },
-  {
-    id: 3,
-    name: "Jessica L.",
-    text: "I've been coming here for over a year now. The stylists truly understand what you want and deliver every time.",
+    name: "Amira. M",
+    text: "From the moment I walked in, I felt cared for. The stylists are incredibly skilled and made me feel confident and comfortable throughout the entire process. A truly luxurious experience with a personal touch.",
     rating: 5
   }
 ];
@@ -110,9 +104,4 @@ export const timeSlots = [
   "6:00 PM", "6:30 PM", "7:00 PM"
 ];
 
-export const stylists = [
-  { id: 1, name: "Sofia Martinez", specialty: "Color Specialist", image: null },
-  { id: 2, name: "Emma Chen", specialty: "Cut & Style Expert", image: null },
-  { id: 3, name: "Olivia Brown", specialty: "Bridal & Updos", image: null },
-  { id: 4, name: "Any Available", specialty: "All Services", image: null }
-];
+export const stylists = [];
